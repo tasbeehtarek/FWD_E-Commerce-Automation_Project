@@ -1,40 +1,47 @@
 package org.example.stepDefs;
 
-import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.example.pages.P08_homeSPage;
-import org.testng.Assert;
+import org.example.pages.P03_homePage;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.asserts.SoftAssert;
+import java.time.Duration;
 
 public class D06_homeSlidersStepDef {
 
-   P08_homeSPage slider=new P08_homeSPage();
+    P03_homePage SL = new P03_homePage();
 
-        @When("user click on buton_one and click on slider_one")
-        public void click_slider_one() throws InterruptedException {
-            slider.butn_one().click();
-            slider.butn_one().click();
-            Thread.sleep(2000);
-            slider.slider_one().click();
-            Thread.sleep(3000);
-        }
+    @When("User Clicks on Nokia Slider")
+    public void Nokia_Slider(){
 
-        @And("should navigated to the slider_product_one page")
-        public void navigated_slider_product_one(){
-            Assert.assertTrue(Hooks.driver.getCurrentUrl().contains("https://demo.nopcommerce.com/nokia-lumia-1020"),"Error in product link");
-        }
-
-        @When("user click on buton_two and click on slider_two")
-        public void click_slider_two() throws InterruptedException {
-            slider.butn_two().click();
-            slider.butn_two().click();
-            Thread.sleep(2000);
-            slider.slider_two().click();
-        }
-
-        @And("should navigated to the slider_product_two page")
-        public void navigated_slider_product_two(){
-            Assert.assertTrue(Hooks.driver.getCurrentUrl().contains("https://demo.nopcommerce.com/iphone-6"),"Error in product link");
-        }
+        WebDriverWait wait = new WebDriverWait(Hooks.driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.attributeContains(SL.Sliders().get(0),"style", "display: block;"));
+        SL.Sliders().get(0).click();
 
     }
+    @Then("Nokia URL should be appeared")
+    public void Success(){
+        SoftAssert soft=new SoftAssert();
+        String ExpectedResult = "https://demo.nopcommerce.com/nokia-lumia-1020";
+        soft.assertEquals(Hooks.driver.getCurrentUrl(),ExpectedResult,"error");
+        soft.assertAll();
+    }
+
+    @When("User clicks on iphone slider")
+    public void Second_Slider(){
+
+        WebDriverWait wait2 = new WebDriverWait(Hooks.driver,Duration.ofSeconds(10));
+
+        wait2.until(ExpectedConditions.attributeContains(SL.Sliders().get(1),"style","display: none;"));
+        SL.Sliders().get(1).click();
+    }
+
+    @Then("Iphone URL should be appeared")
+    public void Iphone(){
+        SoftAssert S = new SoftAssert();
+        S.assertEquals(Hooks.driver.getCurrentUrl(),"https://demo.nopcommerce.com/iphone-6");
+        S.assertAll();
+    }
+}
 

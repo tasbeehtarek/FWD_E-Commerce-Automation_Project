@@ -1,59 +1,24 @@
 package org.example.stepDefs;
 
-import org.example.pages.P06_Wishlist;
-
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
-
+import org.testng.Assert;
 
 public class D08_WishlistStepDef {
-  P06_Wishlist wishlist = new P06_Wishlist();
 
-    public WebElement htc(){
-        By htc=By.cssSelector("a[href=\"/htc-one-m8-android-l-50-lollipop\"]");
-        WebElement htcM8= Hooks.driver.findElement(htc);
-        return htcM8;
+    @When("user click on wishlist button")
+    public void whishlist (){
+        Hooks.driver.findElement(By.xpath("/html/body/div[6]/div[3]/div/div/div/div/div[4]/div[2]/div[3]/div/div[2]/div[3]/div[2]/button[3]"));
+        Hooks.driver.findElement(By.cssSelector("body > div.master-wrapper-page > div.master-wrapper-content > div > div > div > div > div.product-grid.home-page-product-grid > div.item-grid > div:nth-child(3) > div > div.details > div.add-info > div.buttons > button.button-2.add-to-wishlist-button")).click();
     }
-    public WebElement addHTCtoWish(){
-        By add=By.id("add-to-wishlist-button-18");
-        WebElement addtochart=Hooks.driver.findElement(add);
-        return addtochart;
-    }
-    public WebElement notificationmessage(){
-        By noty=By.cssSelector("div[class=\"bar-notification success\"]");
-        WebElement notify=Hooks.driver.findElement(noty);
-        return notify;
-    }
-    public WebElement portableSpeakers(){
-        By speak=By.cssSelector("a[href=\"/portable-sound-speakers\"]");
-        WebElement speaker= Hooks.driver.findElement(speak);
-        return speaker;
-    }
-    public WebElement addPortableSpeakersbtn(){
-        By add=By.id("add-to-wishlist-button-23");
-        WebElement addtochart=Hooks.driver.findElement(add);
-        return addtochart;
-    }
-    public WebElement digitalDownloads(){
-        By digit=By.xpath("//ul[@class=\"top-menu notmobile\"]//li//a[@href=\"/digital-downloads\"]");
-        WebElement digitdown=Hooks.driver.findElement(digit);
-        return digitdown;
-    }
-    public WebElement scienceandfaith(){
-        By scien=By.cssSelector("a[href=\"/science-faith\"]");
-        WebElement scf=Hooks.driver.findElement(scien);
-        return scf;
-    }
-    public WebElement priceField(){
-        By pricef=By.cssSelector("input[class=\"enter-price-input\"]");
-        WebElement pricfield=Hooks.driver.findElement(pricef);
-        return pricfield;
-    }
-    public WebElement addScienceFaithtoCart(){
-        By add=By.id("add-to-wishlist-button-36");
-        WebElement addscf=Hooks.driver.findElement(add);
-        return addscf;
+
+
+    @Then("Green message shall be appeared")
+    public void Success_Message(){
+        Hooks.driver.findElement(By.cssSelector("#bar-notification > div")).isDisplayed();
+        Hooks.driver.findElement(By.cssSelector("#bar-notification > div")).getCssValue("background-color");
+        Assert.assertTrue(Hooks.driver.findElement(By.className("content")).isDisplayed());
     }
 }
 

@@ -1,43 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="16" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="18" time="317.81">
-<testcase classname="F01_Register | users could register" name="Register with valid data" time="9.878">
-<failure message="The path to the driver executable The path to the driver executable must be set by the webdriver.chrome.driver system property; for more information, see https://chromedriver.chromium.org/. The latest version can be downloaded from https://chromedriver.chromium.org/downloads" type="java.lang.IllegalStateException"><![CDATA[Given user navigate to home page............................................skipped
-When user clicks register...................................................skipped
-And user selects "female" "bebo" as firstname and "tester" as lastname......skipped
-And user fills gender"female" fname"Bebo" lname"Tarek" day"1" month"6" year"1999" email"test1999@gmail.com" valid data.skipped
-And user fills valid password "p@ssw0rd" confirm "p@ssw0rd".................skipped
-And user clicks register button.............................................skipped
-Then success message is displayed...........................................skipped
+<testsuite errors="0" failures="5" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="16" time="509.442">
+<testcase classname="F01_Register | users could register" name="Register with valid data" time="87.156">
+<failure message="no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;div[class=&quot;result&quot;]&quot;}&#10;  (Session info: chrome=108.0.5359.73)&#10;For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element&#10;Build info: version: '4.6.0', revision: '79f1c02ae20'&#10;System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_351'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [390b1d969668541e22d9ce21c02d9625, findElement {using=css selector, value=div[class=&quot;result&quot;]}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.73, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\20115\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55790}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:55790/devtoo..., se:cdpVersion: 108.0.5359.73, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: 390b1d969668541e22d9ce21c02d9625" type="org.openqa.selenium.NoSuchElementException"><![CDATA[Given user navigate to home page............................................passed
+When user clicks register...................................................passed
+And user selects "female" "bebo" as firstname and "tester" as lastname......passed
+And user fills gender"female" fname"Bebo" lname"Tarek" day"1" month"6" year"1999" email"test1999@gmail.com" valid data.passed
+And user fills valid password "p@ssw0rd" confirm "p@ssw0rd".................passed
+And user clicks register button.............................................passed
+Then success message is displayed...........................................failed
 
 StackTrace:
-java.lang.IllegalStateException: The path to the driver executable The path to the driver executable must be set by the webdriver.chrome.driver system property; for more information, see https://chromedriver.chromium.org/. The latest version can be downloaded from https://chromedriver.chromium.org/downloads
-	at org.openqa.selenium.internal.Require$StateChecker.nonNull(Require.java:314)
-	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:148)
-	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:39)
-	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:233)
-	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:450)
-	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:128)
-	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:49)
-	at org.example.stepDefs.Hooks.openBrowser(Hooks.java:18)
-]]></failure>
-</testcase>
-<testcase classname="F02_Login | users could login" name="user could login with valid data" time="58.298">
-<failure message="no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;a[href=&quot;/customer/info&quot;][class=&quot;ico-account&quot;]&quot;}&#10;  (Session info: chrome=108.0.5359.71)&#10;For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element&#10;Build info: version: '4.6.0', revision: '79f1c02ae20'&#10;System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_351'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [ee20ed8a46b6b6b14814bf65aa3a87e7, findElement {using=css selector, value=a[href=&quot;/customer/info&quot;][class=&quot;ico-account&quot;]}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.71, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\20115\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:57772}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57772/devtoo..., se:cdpVersion: 108.0.5359.71, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: ee20ed8a46b6b6b14814bf65aa3a87e7" type="org.openqa.selenium.NoSuchElementException"><![CDATA[Given user navigates to Home page...........................................passed
-And user clicks on login button.............................................passed
-When user enter valid "test1999@gmail.com" and valid "p@ssw0rd".............passed
-And user clicks login button................................................passed
-Then user logged in successfully............................................failed
-
-StackTrace:
-org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"a[href="/customer/info"][class="ico-account"]"}
-  (Session info: chrome=108.0.5359.71)
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"div[class="result"]"}
+  (Session info: chrome=108.0.5359.73)
 For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: '4.6.0', revision: '79f1c02ae20'
 System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_351'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [ee20ed8a46b6b6b14814bf65aa3a87e7, findElement {using=css selector, value=a[href="/customer/info"][class="ico-account"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.71, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\20115\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:57772}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57772/devtoo..., se:cdpVersion: 108.0.5359.71, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: ee20ed8a46b6b6b14814bf65aa3a87e7
+Command: [390b1d969668541e22d9ce21c02d9625, findElement {using=css selector, value=div[class="result"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.73, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\20115\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55790}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:55790/devtoo..., se:cdpVersion: 108.0.5359.73, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 390b1d969668541e22d9ce21c02d9625
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -53,11 +34,19 @@ Session ID: ee20ed8a46b6b6b14814bf65aa3a87e7
 	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
-	at org.example.stepDefs.D02_loginStepDef.user_logged_in_successfully(D02_loginStepDef.java:47)
-	at ✽.user logged in successfully(file:///C:/Users/20115/IdeaProjects/demonopcommerceA/src/main/resources/features/F02_Login.feature:10)
+	at org.example.stepDefs.D01_registerStepDef.success_message_is_displayed(D01_registerStepDef.java:72)
+	at ✽.success message is displayed(file:///C:/Users/20115/IdeaProjects/demonopcommerceA/src/main/resources/features/F01_Register.feature:12)
 ]]></failure>
 </testcase>
-<testcase classname="F02_Login | users could login" name="user login with invalid username and password" time="25.1">
+<testcase classname="F02_Login | users could login" name="user could login with valid data" time="27.374">
+<system-out><![CDATA[Given user navigates to Home page...........................................passed
+And user clicks on login button.............................................passed
+When user enter valid "test1999@gmail.com" and valid "p@ssw0rd".............passed
+And user clicks login button................................................passed
+Then user logged in successfully............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="F02_Login | users could login" name="user login with invalid username and password" time="16.228">
 <system-out><![CDATA[Given user navigates to Home page...........................................passed
 And user clicks on login button.............................................passed
 When user enter valid "test11@ail.com" and valid "613p@"....................passed
@@ -65,181 +54,122 @@ And user clicks login button................................................pass
 Then user could not login...................................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="F03_Currency | testing currency" name="user could select euro currency" time="12.444">
-<failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception"><![CDATA[Given user navigate to Home page............................................undefined
-And user click on login.....................................................skipped
-When user enter valid "test1999@gmail.com" and valid "p@ssw0rd".............skipped
-And user clicks login button................................................skipped
-Then user logged in successfully............................................skipped
-When user select euro option................................................skipped
-Then euro symbol is displayed on all products...............................skipped
-When user choose USD from dropdown menu.....................................skipped
-Then usd is selected successfully...........................................skipped
-]]></failure>
-</testcase>
-<testcase classname="F04_Search | users will be able to search for products with different parameters" name="Logged user could search using product name" time="13.187">
-<failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception"><![CDATA[Given user navigate to Home page............................................undefined
-And user click on login.....................................................skipped
-When user enter valid "test1999@gmail.com" and valid "p@ssw0rd".............skipped
-And user clicks login button................................................skipped
-Then user logged in successfully............................................skipped
-When user click on search field.............................................skipped
-And user enter "book" to search.............................................skipped
-Then user find the product and relative products............................skipped
-]]></failure>
-</testcase>
-<testcase classname="F04_Search | users will be able to search for products with different parameters" name="Logged user could search using product name 2" time="12.172">
-<failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception"><![CDATA[Given user navigate to Home page............................................undefined
-And user click on login.....................................................skipped
-When user enter valid "test1999@gmail.com" and valid "p@ssw0rd".............skipped
-And user clicks login button................................................skipped
-Then user logged in successfully............................................skipped
-When user click on search field.............................................skipped
-And user enter "laptop" to search...........................................skipped
-Then user find the product and relative products............................skipped
-]]></failure>
-</testcase>
-<testcase classname="F04_Search | users will be able to search for products with different parameters" name="Logged user could search using product name 3" time="11.1">
-<failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception"><![CDATA[Given user navigate to Home page............................................undefined
-And user click on login.....................................................skipped
-When user enter valid "test1999@gmail.com" and valid "p@ssw0rd".............skipped
-And user clicks login button................................................skipped
-Then user logged in successfully............................................skipped
-When user click on search field.............................................skipped
-And user enter "nike" to search.............................................skipped
-Then user find the product and relative products............................skipped
-]]></failure>
-</testcase>
-<testcase classname="F04_Search | users will be able to search for products with different parameters" name="Logged user could search for product using sku" time="12.501">
-<failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception"><![CDATA[Given user navigate to Home page............................................undefined
-And user click on login.....................................................skipped
-When user enter valid "test1999@gmail.com" and valid "p@ssw0rd".............skipped
-And user clicks login button................................................skipped
-Then user logged in successfully............................................skipped
-When user click on search field.............................................skipped
-And user enter "SCI_FAITH" to search........................................skipped
-Then user find "SCI_FAITH" product..........................................skipped
-]]></failure>
-</testcase>
-<testcase classname="F04_Search | users will be able to search for products with different parameters" name="Logged user could search for product using sku 2" time="10.258">
-<failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception"><![CDATA[Given user navigate to Home page............................................undefined
-And user click on login.....................................................skipped
-When user enter valid "test1999@gmail.com" and valid "p@ssw0rd".............skipped
-And user clicks login button................................................skipped
-Then user logged in successfully............................................skipped
-When user click on search field.............................................skipped
-And user enter "APPLE_CAM" to search........................................skipped
-Then user find "APPLE_CAM" product..........................................skipped
-]]></failure>
-</testcase>
-<testcase classname="F04_Search | users will be able to search for products with different parameters" name="Logged user could search for product using sku 3" time="13.88">
-<failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception"><![CDATA[Given user navigate to Home page............................................undefined
-And user click on login.....................................................skipped
-When user enter valid "test1999@gmail.com" and valid "p@ssw0rd".............skipped
-And user clicks login button................................................skipped
-Then user logged in successfully............................................skipped
-When user click on search field.............................................skipped
-And user enter "SF_PRO_11" to search........................................skipped
-Then user find "SF_PRO_11" product..........................................skipped
-]]></failure>
-</testcase>
-<testcase classname="Slider| user could click on page sliders" name="user could click on page sliders" time="10.923">
-<failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception"><![CDATA[Given user navigate to Home page............................................undefined
-And user click on login.....................................................skipped
-When user enter valid "test1999@gmail.com" and valid "p@ssw0rd".............skipped
-And user clicks login button................................................skipped
-Then user logged in successfully............................................skipped
-When user click on buton_one and click on slider_one........................skipped
-And should navigated to the slider_product_one page.........................skipped
-When user click on buton_two and click on slider_two........................skipped
-And should navigated to the slider_product_two page.........................skipped
-]]></failure>
-</testcase>
-<testcase classname="F07_followUs |  users could open followUs links" name="user opens facebook link" time="11.817">
-<failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception"><![CDATA[Given user navigate to Home page............................................undefined
-And user click on login.....................................................skipped
-When user enter valid "test1999@gmail.com" and valid "p@ssw0rd".............skipped
-And user clicks login button................................................skipped
-Then user logged in successfully............................................skipped
-When user click on facebook.................................................skipped
-Then navigated to facebook "https://www.facebook.com/nopCommerce"...........skipped
-]]></failure>
-</testcase>
-<testcase classname="F07_followUs |  users could open followUs links" name="user opens twitter link" time="10.521">
-<failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception"><![CDATA[Given user navigate to Home page............................................undefined
-And user click on login.....................................................skipped
-When user enter valid "test1999@gmail.com" and valid "p@ssw0rd".............skipped
-And user clicks login button................................................skipped
-Then user logged in successfully............................................skipped
-When user click on twitter icon.............................................skipped
-Then navigated to twitter "https://twitter.com/nopCommerce".................skipped
-]]></failure>
-</testcase>
-<testcase classname="F07_followUs |  users could open followUs links" name="user opens rss link" time="11.499">
-<failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception"><![CDATA[Given user navigate to Home page............................................undefined
-And user click on login.....................................................skipped
-When user enter valid "test1999@gmail.com" and valid "p@ssw0rd".............skipped
-And user clicks login button................................................skipped
-Then user logged in successfully............................................skipped
-When user click on rss icon.................................................skipped
-Then navigated to rss "https://demo.nopcommerce.com/nopcommerce-new-release".skipped
-]]></failure>
-</testcase>
-<testcase classname="F07_followUs |  users could open followUs links" name="ouser opens youtube link" time="11.013">
-<failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception"><![CDATA[Given user navigate to Home page............................................undefined
-And user click on login.....................................................skipped
-When user enter valid "test1999@gmail.com" and valid "p@ssw0rd".............skipped
-And user clicks login button................................................skipped
-Then user logged in successfully............................................skipped
-When user click on youtube icon.............................................skipped
-Then navigated to youtube "https://www.youtube.com/user/nopCommerce"........skipped
-]]></failure>
-</testcase>
-<testcase classname="Shopping Cart | user could add products to Shopping Cart" name="user could add products to the Cart" time="44.958">
-<system-out><![CDATA[Given user go to home page..................................................passed
-When user add HTC_M8Android to the cart.....................................passed
-And user click add_to_cart button_1.........................................passed
-Then success message appears_1..............................................passed
-When user add Apple_MacBook to the cart.....................................passed
-And user click add_to_cart button_2.........................................passed
-Then success message appears_2..............................................passed
-When user add gift card to the cart.........................................passed
-And user fills the mandatory fields.........................................passed
-And user click add_to_cart button_3.........................................passed
-Then success message appears_3..............................................passed
+<testcase classname="F03_Currency | users could change the currency" name="user could select euro currency" time="18.154">
+<system-out><![CDATA[When user select euro option................................................passed
+Then euro symbol is displayed on all products...............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Shopping Cart | user could add products to Shopping Cart" name="user could add products to the Cart 2" time="25.104">
-<failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception"><![CDATA[Given user go to home page..................................................passed
-When user add HTC_M8Android to the cart.....................................passed
-And user click add_to_cart button_1.........................................passed
-Then success message appears_1..............................................passed
-When user add nokia_lumia_1020 to the cart..................................undefined
-And user click add_to_cart button_2.........................................skipped
-Then success message appears_2..............................................skipped
-When user add gift card to the cart.........................................skipped
-And user fills the mandatory fields.........................................skipped
-And user click add_to_cart button_3.........................................skipped
-Then success message appears_3..............................................skipped
+<testcase classname="F04_Search | users will be able to search for products with different parameters" name="Logged user could search using product name" time="38.579">
+<system-out><![CDATA[When User search with "books"...............................................passed
+Then User can find "books"..................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="F04_Search | users will be able to search for products with different parameters" name="Logged user could search using product name 2" time="45.421">
+<system-out><![CDATA[When User search with "Laptops".............................................passed
+Then User can find "Laptops"................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="F04_Search | users will be able to search for products with different parameters" name="Logged user could search using product name 3" time="41.292">
+<system-out><![CDATA[When User search with "nike"................................................passed
+Then User can find "nike"...................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="F04_Search | users will be able to search for products with different parameters" name="User need to search with sku" time="27.723">
+<system-out><![CDATA[When user search with "NK_FRC_RS"...........................................passed
+And click on product image..................................................passed
+Then Page should be appeared with sku.......................................passed
+]]></system-out>
+</testcase>
+<testcase classname="User want to click on sub-element" name="User Click on Sub-element" time="50.883">
+<failure message="Index: 0, Size: 0" type="java.lang.IndexOutOfBoundsException"><![CDATA[When User click on Parent and select sub....................................failed
+
+StackTrace:
+java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.ArrayList.rangeCheck(ArrayList.java:659)
+	at java.util.ArrayList.get(ArrayList.java:435)
+	at org.example.stepDefs.D05_hoverCategoriesStepDef.hover_Test(D05_hoverCategoriesStepDef.java:19)
+	at ✽.User click on Parent and select sub(file:///C:/Users/20115/IdeaProjects/demonopcommerceA/src/main/resources/features/F05_hoverCategories.feature:5)
 ]]></failure>
 </testcase>
-<testcase classname="WishList| user could add products to the wishlist" name="user could add products to wishlist" time="11.523">
-<failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception"><![CDATA[Given user navigate to Home page............................................undefined
-And user click on login.....................................................skipped
-When user enter valid "test1999@gmail.com" and valid "p@ssw0rd".............skipped
-And user clicks login button................................................skipped
-Then user logged in successfully............................................skipped
-When click on HTC_One_M8_Android............................................skipped
-And add HTC_One_M8_Android to wishlist......................................skipped
-Then success message appears__1.............................................skipped
-When click on Portable_Sound_Speakers.......................................skipped
-And add Portable_Sound_Speakers to wishlist.................................skipped
-Then success message appears__2.............................................skipped
-When go to digital_downloads................................................skipped
-And click on Science_and_Faith..............................................skipped
-And fill mandatory field....................................................skipped
-And click on add_to_wishlist................................................skipped
-Then success message appears__3.............................................skipped
+<testcase classname="Slider| user could click on page sliders" name="user could click on page sliders" time="30.769">
+<failure message="The following asserts failed:&#10;&#9;error expected [https://demo.nopcommerce.com/nokia-lumia-1020] but found [https://demo.nopcommerce.com/]" type="java.lang.AssertionError"><![CDATA[When User Clicks on Nokia Slider............................................passed
+And Nokia URL should be appeared............................................failed
+
+StackTrace:
+java.lang.AssertionError: The following asserts failed:
+	error expected [https://demo.nopcommerce.com/nokia-lumia-1020] but found [https://demo.nopcommerce.com/]
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at org.example.stepDefs.D06_homeSlidersStepDef.Success(D06_homeSlidersStepDef.java:28)
+	at ✽.Nokia URL should be appeared(file:///C:/Users/20115/IdeaProjects/demonopcommerceA/src/main/resources/features/F06_homeSliders.feature:7)
 ]]></failure>
+</testcase>
+<testcase classname="Slider| user could click on page sliders" name="user click on second slider" time="27.489">
+<failure message="element not interactable&#10;  (Session info: chrome=108.0.5359.73)&#10;Build info: version: '4.6.0', revision: '79f1c02ae20'&#10;System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_351'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [de04e1ea7551b9bf7b526a4e0225d7ee, clickElement {id=3585dd47-7273-4371-9d8e-45aa4f096c43}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.73, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\20115\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:56166}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56166/devtoo..., se:cdpVersion: 108.0.5359.73, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on WINDOWS (de04e1ea7551b9bf7b526a4e0225d7ee)] -&gt; class name: nivo-imageLink]&#10;Session ID: de04e1ea7551b9bf7b526a4e0225d7ee" type="org.openqa.selenium.ElementNotInteractableException"><![CDATA[When User clicks on iphone slider...........................................failed
+Then Iphone URL should be appeared..........................................skipped
+
+StackTrace:
+org.openqa.selenium.ElementNotInteractableException: element not interactable
+  (Session info: chrome=108.0.5359.73)
+Build info: version: '4.6.0', revision: '79f1c02ae20'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_351'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [de04e1ea7551b9bf7b526a4e0225d7ee, clickElement {id=3585dd47-7273-4371-9d8e-45aa4f096c43}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.73, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\20115\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:56166}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56166/devtoo..., se:cdpVersion: 108.0.5359.73, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (de04e1ea7551b9bf7b526a4e0225d7ee)] -> class name: nivo-imageLink]
+Session ID: de04e1ea7551b9bf7b526a4e0225d7ee
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:541)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:257)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:78)
+	at org.example.stepDefs.D06_homeSlidersStepDef.Second_Slider(D06_homeSlidersStepDef.java:37)
+	at ✽.User clicks on iphone slider(file:///C:/Users/20115/IdeaProjects/demonopcommerceA/src/main/resources/features/F06_homeSliders.feature:10)
+]]></failure>
+</testcase>
+<testcase classname="F07_followUs |  users could open followUs links" name="user opens facebook link" time="13.192">
+<system-out><![CDATA[When user click on facebook.................................................passed
+Then user navigated to page in new tap "https://www.facebook.com/nopCommerce".passed
+]]></system-out>
+</testcase>
+<testcase classname="F07_followUs |  users could open followUs links" name="user opens twitter link" time="15.211">
+<system-out><![CDATA[When user click on twitter icon.............................................passed
+Then user navigated to page in new tap "https://twitter.com/nopCommerce"....passed
+]]></system-out>
+</testcase>
+<testcase classname="F07_followUs |  users could open followUs links" name="user opens rss link" time="21.266">
+<failure message="Expected condition failed: waiting for number of open windows to be 2 (tried for 10 second(s) with 500 milliseconds interval)&#10;Build info: version: '4.6.0', revision: '79f1c02ae20'&#10;System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_351'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.73, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\20115\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:56275}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56275/devtoo..., se:cdpVersion: 108.0.5359.73, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: 46b0086991e49df0bb00c5de56c772d4" type="org.openqa.selenium.TimeoutException"><![CDATA[When user click on rss icon.................................................failed
+Then user navigated to page in new tap "https://demo.nopcommerce.com/nopcommerce-new-release".skipped
+
+StackTrace:
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for number of open windows to be 2 (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.6.0', revision: '79f1c02ae20'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_351'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.73, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\20115\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:56275}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56275/devtoo..., se:cdpVersion: 108.0.5359.73, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 46b0086991e49df0bb00c5de56c772d4
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at org.example.stepDefs.D07_followUsStepDef.rss(D07_followUsStepDef.java:51)
+	at ✽.user click on rss icon(file:///C:/Users/20115/IdeaProjects/demonopcommerceA/src/main/resources/features/F07_followUs.feature:14)
+]]></failure>
+</testcase>
+<testcase classname="F07_followUs |  users could open followUs links" name="user opens youtube link" time="23.645">
+<system-out><![CDATA[When user click on youtube icon.............................................passed
+Then user navigated to page in new tap "https://www.youtube.com/user/nopCommerce".passed
+]]></system-out>
+</testcase>
+<testcase classname="WishList| user could add products to the wishlist" name="Add product to wishlist" time="23.938">
+<system-out><![CDATA[When user click on wishlist button..........................................passed
+Then Green message shall be appeared........................................passed
+]]></system-out>
 </testcase>
 </testsuite>

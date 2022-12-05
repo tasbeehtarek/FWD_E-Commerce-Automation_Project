@@ -1,84 +1,45 @@
 package org.example.stepDefs;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
+
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.example.pages.P02_login;
-import org.example.pages.P03_Currencies;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import org.example.pages.P03_homePage;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import java.util.List;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 public class D03_currenciesStepDef {
- //P03_homePage home= new P03_homePage();
+    P03_homePage Curr = new P03_homePage() ;
 
-P03_Currencies Currency = new P03_Currencies();
+P03_homePage Currency = new P03_homePage();
 
 
     @When("user select euro option")
-    public void select_euro()
-    {
-      List<WebElement> categories = Hooks.driver.findElements(By.cssSelector("ul[class=\"top-menu notmobile\"]>li>a[href]"));
-      int randomNumber = new Random().nextInt(3);
+    public void Currency_dropdown() throws InterruptedException {
 
-        Actions hover= new Actions(Hooks.driver);
-        hover.moveToElement(categories.get(randomNumber)).perform();
+        Select Currency = new Select(Curr.Currency_List());
+        Currency.selectByVisibleText("Euro");
 
-       String mainCategory =  categories.get(randomNumber).getText();
-        System.out.println(mainCategory );
-        List<WebElement> subCategory = Hooks.driver.findElements(By.xpath("//ul[@class=\"top-menu notmobile\"/li["+randomNumber+"]/ul[@class=\"sublist first-level\"]/li"));
-        int randomNumbersub = new Random().nextInt(3);
-
-       String subCate = subCategory.get(randomNumbersub).getText();
-        System.out.println(subCate);
-        subCategory.get(randomNumbersub).click();
-
-     String pageTitle =  Hooks.driver.findElement(By.cssSelector("div[class=\"page-title\"]")).getText();
-
-   String url = Hooks.driver.getCurrentUrl();
-
-        Assert.assertTrue(pageTitle.contains(subCate));
-
+        Thread.sleep(3000);
     }
-
 
     @Then("euro symbol is displayed on all products")
-    public void euroSymbolIsDisplayedOnAllProducts() throws InterruptedException {
 
-        //findElements
-        for (int x = 0; x < Currency.prices().size(); x++) {
-            String value = Currency.prices().get(x).getText();
-            System.out.println(value.toLowerCase());
+    public void Currency_validation(){
 
-            //assertion   value contains €
 
-            String selected = Hooks.driver.findElement(By.cssSelector("select[onchange=\"setLocation(this.value)\"]")).getText();
-            Assert.assertTrue(selected.contains("Euro"), "Euro is selected Successfully");
-            Currency.currencyEuro();
-            Thread.sleep(1000);
+        String[] x = new String[4];
 
+        for(int i= 0 ; i<Curr.prices().size() ; i++){
+            x[i]=Curr.prices().get(i).getText();
+            System.out.println(x[i]);
+            Assert.assertTrue(x[i].contains("€"));
         }
+
+
+
+
     }
 
-        @When("user choose USD from dropdown menu")
-        public void user_choose_USD_from_dropdown_menu () throws InterruptedException {
-            Currency.chooseUSD();
-            Thread.sleep(3000);
-        }
-
-
-        @Then("usd is selected successfully")
-        public void usd_is_selected_successfully () throws InterruptedException {
-            String selected = Hooks.driver.findElement(By.cssSelector("select[onchange=\"setLocation(this.value)\"]")).getText();
-            Assert.assertTrue(selected.contains("US Dollar"), "US Dollar is selected Successfully");
-            Currency.currencyDollar();
-            Thread.sleep(1000);
-        }
 
 }
 

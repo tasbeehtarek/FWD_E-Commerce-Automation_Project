@@ -1,63 +1,66 @@
 package org.example.stepDefs;
 
-import org.example.pages.P03_Currencies;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.example.pages.P04_Search;
+import org.example.pages.P03_homePage;
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
-import static org.openqa.selenium.Keys.ENTER;
+
 public class D04_SearchStepDef {
 
-    P04_Search search =new P04_Search();
+    P03_homePage S = new P03_homePage();
 
-    @When("user click on search field")
-    public void user_click_on_search_field(){
-        search.searchfield().click();
+    @When("User search with {string}")
+    public void Search(String arg01){
+
+        S.SearchField().click();
+        S.SearchField().sendKeys(arg01);
+        S.SearchButton().click();
+
     }
 
-    @And("^user enter \"(.*)\" to search$")
-    public void user_enter_the_name_of_product(String searchname){
-        search.searchfield().sendKeys(searchname);
-        search.searchbtn().sendKeys(ENTER);
-        Hooks.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-    }
+    @Then("User can find {string}")
+    public void Success(String arg01){
 
-    @Then("user find the product and relative products")
-    public void user_find_the_product_and_relative_products(){
-        int numofProduct =Hooks.driver.findElements(By.cssSelector("h2[class=\"product-title\"]")).size();
-        System.out.println(numofProduct);
-        Assert.assertTrue(numofProduct>0);
-        String url="https://demo.nopcommerce.com/search";
-        Assert.assertTrue(Hooks.driver.getCurrentUrl().contains(url));
-        ArrayList<String> resultproducts;
-        resultproducts= new ArrayList();
-        for (int n=0;n<numofProduct;n++){
-            System.out.println(Hooks.driver.findElements(By.cssSelector("h2[class=\"product-title\"]")).get(n).getText());
-            resultproducts.add(Hooks.driver.findElements(By.cssSelector("h2[class=\"product-title\"]")).get(n).getText());
+        String ExprectedResult = "https://demo.nopcommerce.com/search?q="+arg01;
+        String ExpectedRsult2 = "https://demo.nopcommerce.com/search?q=";
+        Assert.assertEquals(Hooks.driver.getCurrentUrl(),ExprectedResult);
+        Assert.assertEquals(Hooks.driver.getCurrentUrl().contains(ExpectedRsult2),true);
+        // List<WebElement> ProductItems = Hooks.driver.findElements(By.className("product-item"));
+
+        System.out.println(S.ProductItems().size());
+
+        for(int i=0; i<S.ProductItems().size();i++){
+
+            Assert.assertTrue(S.ProductItems().get(i).getText().toLowerCase().contains(arg01));
+
+
         }
-        System.out.println(resultproducts);
+
+
+    }
+    @When("user search with {string}")
+    public void sku(String arg02){
+
+        S.SearchField().sendKeys(arg02);
+        S.SearchButton().click();
+
+    }
+    @And("click on product image")
+    public void Click(){
+
+        S.ProductImage().click();
+
     }
 
-    @Then("^user find \"(.*)\" product$")
-    public void user_find_one_product(String found){
-        int numofProduct =Hooks.driver.findElements(By.cssSelector("h2[class=\"product-title\"]")).size();
-        System.out.println(numofProduct);
-        Assert.assertEquals(numofProduct,1);
-        String url="https://demo.nopcommerce.com/search";
-        Assert.assertTrue(Hooks.driver.getCurrentUrl().contains(url));
-        ArrayList<String> resultproducts=new ArrayList();
-        for (int n=0;n<numofProduct;n++){
-            System.out.println(Hooks.driver.findElements(By.cssSelector("h2[class=\"product-title\"]")).get(n).getText());
-            resultproducts.add(Hooks.driver.findElements(By.cssSelector("h2[class=\"product-title\"]")).get(n).getText());
-        }
-        System.out.println(resultproducts);
-        search.founded().click();
-        Hooks.driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        String actual=Hooks.driver.findElement(By.cssSelector("div[class=\"sku\"] span[class=\"value\"]")).getText();
-        Assert.assertTrue(actual.contains(found),"Right product founded");
+    @Then("Page should be appeared with sku")
+    public void Success(){
+        String ExpectedResult = "NK_FRC_RS";
+        Assert.assertEquals(Hooks.driver.findElement(By.className("label")).isDisplayed(),true);
+        Assert.assertEquals(Hooks.driver.findElement(By.id("sku-24")).getText(),ExpectedResult);
+
+
     }
+
 }
